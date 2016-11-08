@@ -40,61 +40,30 @@ int Circle::getNumberOfObjects()
 {
 	return numberOfObjects;
 }
-Circle Circle::Subtract(const Circle& secondCircle)const
+
+bool Circle::operator<(const Circle& secondCircle)
 {
-	double r = radius - secondCircle.getRadius();
-	return Circle(r);
+	return (this->getRadius()) < (secondCircle.getRadius());
 }
 
-int Circle::compareTo(const Circle& secondCircle)const
+bool Circle::operator<=(const Circle& secondCircle)
 {
-	Circle temp = Subtract(secondCircle);
-	if (temp.getRadius() < 0)
-		return -1;
-	else if (temp.getRadius() == 0)
-		return 0;
-	else return 1;
-}
-bool Circle::operator<(const Circle& secondCircle)const 
-{
-	if (compareTo(secondCircle) < 0)
-		return true;
-	else
-		return false;
-}
-bool Circle::operator<=(const Circle& secondCircle)const
-{
-	if (compareTo(secondCircle) <= 0)
-		return true;
-	else 
-		return false;
+	return(this->getRadius()) <= (secondCircle.getRadius());
 }
 
-bool Circle::operator==(const Circle& secondCircle)const
+bool Circle::operator==(const Circle& secondCircle)
 {
-	if (compareTo(secondCircle) == 0)
-		return true;
-	else
-		return false;
+	return (this->getRadius()) == (secondCircle.getRadius());
 }
-bool Circle::operator!=(const Circle& secondCircle)const
+bool Circle::operator!=(const Circle& secondCircle)
 {
-	if (compareTo(secondCircle) == 0)
-		return true;
-	else
-		return false;
+	return (this->getRadius()) != (secondCircle.getRadius());
 }
-bool Circle:: operator >(const Circle& secondCircle)const
+bool Circle:: operator >(const Circle& secondCircle)
 {
-	if (compareTo(secondCircle) > 0)
-		return true;
-	else
-		return false;
+	return(this->getRadius()) > (secondCircle.getRadius());
 }
-bool Circle::operator >=(const Circle& secondCircle)const
+bool Circle::operator >=(const Circle& secondCircle)
 {
-	if (compareTo(secondCircle) > 0)
-		return true;
-	else
-		return false;
+	return (this->getRadius()) >= (secondCircle.getRadius());
 }
